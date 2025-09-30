@@ -15,7 +15,7 @@ test.describe('Test Case 9: Search Product',()=>{
         await page.goto('https://automationexercise.com/')
     
     })
-    test('searching products',async({page})=>{
+    test('searching products test',async({page})=>{
         await homePage.isLogoVisible();
         await basePage.clickOnTopNavigationLink('Products');
         await productPage.isAllProductsTitleVisible();
