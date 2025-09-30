@@ -18,9 +18,12 @@ export class ProductPage {
     }
 
     async validateAllSearchedProducts(): Promise<void> {
-        await expect(this.allSearchedProducts).toBeVisible();
-        const count = await this.allSearchedProducts.count();
-        console.log(`Number of searched products: ${count}`);
+        const count=await this.allSearchedProducts.count();
+        expect(count).toBeGreaterThan(0);
+       for(let i=0;i<await this.allSearchedProducts.count();i++){
+        await expect(this.allSearchedProducts.nth(i)).toBeVisible();
+        console.log(count)
+       }
         
     }
 
