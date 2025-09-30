@@ -14,4 +14,5 @@ export class HomePage extends BasePage {
     async clickOnTestCaseButton(): Promise<void> {
         await this.testCaseButton.click();
     }
+    
 }
