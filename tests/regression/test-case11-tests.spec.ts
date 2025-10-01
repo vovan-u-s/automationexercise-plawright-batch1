@@ -24,5 +24,6 @@ test.describe('Test Case 8: Verifying first product in the list', () => {
         await basePage.clickOnTopNavigationLink('Cart');
         await cartPage.validateSubscription();
         await cartPage.enterEmail('test@example.com');
+        await cartPage.validateSuccessMessage();
     })
 })
