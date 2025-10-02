@@ -15,10 +15,12 @@ test.describe('Test Case 18: View Category Products', async () => {
         await homePage.isLogoVisible();
         await basePage.clickOnTopNavigationLink('Products');
         await basePage.navigateToTheDressPage();
-        await basePage.isCategoryVisible('Women - Dress Products')
+        await basePage.isCategoryVisible('Women - Dress Products');
         await basePage.navigateToTheTShirtsPage();
         await basePage.isCategoryVisible('Men - Tshirts Products');
-
-
+        await basePage.clickOnBrand('Polo');
+        await basePage.isCategoryVisible('Men - Polo Products');
+        await basePage.clickOnBrand('H&M');
+        await basePage.isCategoryVisible('Men - H&M Products');
     })
-})
+})          
