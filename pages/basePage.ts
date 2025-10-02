@@ -2,28 +2,33 @@ import { Locator, Page } from '@playwright/test'
 export class BasePage {
     private page: Page;
     private topNavigationLocator: Locator;
-    private categoryLocator: Locator;
+    private dressCategoryLocator: Locator;
     private womenCategoryLocator: Locator;
     private manCategoryLocator: Locator;
+    private tshirtsCategoryLocator: Locator;
     constructor(page: Page) {
         this.page = page;
         this.topNavigationLocator = page.locator('ul[class="nav navbar-nav"] li');// ALL TOP NAVIGATION LINKS
-        this.categoryLocator = page.locator('h2[class="title text-center"]');
-        this.womenCategoryLocator = page.locator('h4[class="panel-title"]').first();
-        this.manCategoryLocator = page.locator('div[class="panel panel-default"]')
+        this.dressCategoryLocator = page.locator('a[href="/category_products/1"]');
+        this.womenCategoryLocator = page.locator('a[href="#Women"]');
+        this.manCategoryLocator = page.locator('a[href="#Men"]');
+        this.tshirtsCategoryLocator = page.locator('a[href="/category_products/3"]');
         
     }
     async clickOnTopNavigationLink(linkName: string) {
         await this.topNavigationLocator.getByText(linkName).click();
     }
      async isCategoryVisible(nameOfCategory: string): Promise<void> {
-        await this.categoryLocator.getByText(nameOfCategory).isVisible();
+        await this.dressCategoryLocator.getByText(nameOfCategory).isVisible();
     }
-    async navigateToTheDressPage(category: string): Promise<void> {
-        await this.womenCategoryLocator.getByText(category).click();
+    async navigateToTheDressPage(): Promise<void> {
+        await this.womenCategoryLocator.click();
+        await this.dressCategoryLocator.click();
     }
-    async navigateToTheTShirtsPage(menCategory: string): Promise<void> {
-        await this.manCategoryLocator.getByText(menCategory).click();
+    async navigateToTheTShirtsPage(): Promise<void> {
+        await this.manCategoryLocator.click();
+        await this.tshirtsCategoryLocator.click();
+        
     }
   
 }

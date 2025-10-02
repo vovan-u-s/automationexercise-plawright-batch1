@@ -14,9 +14,9 @@ test.describe('Test Case 18: View Category Products', async () => {
     test('Verify different category', async ({ page }) => {
         await homePage.isLogoVisible();
         await basePage.clickOnTopNavigationLink('Products');
-        await basePage.navigateToTheDressPage('Dress');
+        await basePage.navigateToTheDressPage();
         await basePage.isCategoryVisible('Women - Dress Products')
-        await basePage.navigateToTheTShirtsPage('Tshirts');
+        await basePage.navigateToTheTShirtsPage();
         await basePage.isCategoryVisible('Men - Tshirts Products');
 
 
