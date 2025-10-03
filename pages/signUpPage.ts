@@ -7,6 +7,7 @@ export class SignUpPage extends BasePage{
     private incorrectLoginDataMessage: Locator;
     private sigUpPageTitle:Locator;
     private deletedAccountMessage:Locator;
+    
 
     constructor(page: Page) {
         super(page);
