@@ -10,25 +10,18 @@ test.describe('Test Case 5: Sign Up with Username with  email ', () => {
     let basePage: BasePage;
     const randomEmail = faker.internet.email();
     const randomPassword = faker.internet.password();
-
-
     test.beforeEach(async ({ page }) => {
         homePage = new HomePage(page);
         signUpPage = new SignUpPage(page);
         basePage = new BasePage(page);
-        await page.goto('https://automationexercise.com/');
-
+        await page.goto(process.env.baseUrl!);
     });
 
     test('User should see logged message with correct email and password', async ({ page }) => {
-
-        await page.goto('https://automationexercise.com/');
         await homePage.isLogoVisible();
         await basePage.clickOnTopNavigationLink('Signup / Login');
         await signUpPage.isNewUserSignUpMessageVisible();
         await signUpPage.providingNameAndEmailAndClickOnSignUpButton(process.env.myUserName!, process.env.testEmail!);
         await signUpPage.isSignUpMessageVisible();
-        
-       
     })
 })
