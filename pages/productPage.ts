@@ -11,8 +11,8 @@ export class ProductPage {
         this.searchBarInput = page.getByRole('textbox', { name: 'Search Product' })
         this.searchButton = page.getByRole('button', { name: '' })
         this.searchedProductsTitle = page.getByRole('heading', { name: 'Searched Products' })
-        this.allProducts = page.locator('div[class="col-sm-4"]')
-        this.addingAllProductsToCartButton = page.locator('a[class="btn btn-default add-to-cart"]')
+        this.allProducts = page.locator('div[class="single-products"]')
+        this.addingAllProductsToCartButton = page.locator('div[class="single-products"] a ')
     }
     async isProductsPageTitleVisible(products: string): Promise<void> {
         await test.expect(this.productsPageTitle).toHaveText(products);
@@ -24,13 +24,16 @@ export class ProductPage {
         await this.searchBarInput.fill(productName);
         await this.searchButton.click();
     }
-    async isProductsVisible(): Promise<void> {
-        await test.expect(this.allProducts).toBeVisible();
+    async isAllProductsVisible(): Promise<void> {
+        const all = await this.allProducts.count();
+        for (let i = 0; i < all; i++) {
+            await test.expect(this.allProducts.nth(0)).toBeVisible();
+        }
     }
     async addAllProductsToCart(): Promise<void> {
         const counting = await this.allProducts.count();
         for (let i = 0; i < counting; i++) {
-            await this.allProducts.nth(i).locator('a[class="btn btn-default add-to-cart"]').click();
+            await this.allProducts.nth(0).click();
         }
     }
 }

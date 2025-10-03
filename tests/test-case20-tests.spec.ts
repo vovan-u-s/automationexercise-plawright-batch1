@@ -26,7 +26,7 @@ test.describe('Test Case 5: Sign Up with Username with  email ', () => {
         await productPage.isProductsPageTitleVisible('All Products');
         await productPage.searchProduct('dress');
         await productPage.isSearchedProductsTitleVisible();
-        await productPage.isProductsVisible();
+        await productPage.isAllProductsVisible();
         await productPage.addAllProductsToCart();
         await basePage.clickOnTopNavigationLink('Signup / Login')
         await signUpPage.providingNameAndEmailAndClickOnSignUpButton(process.env.testEmail!, process.env.password!);
