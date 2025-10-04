@@ -13,6 +13,7 @@ test.describe('Test Case 22:Verified Product in cart page ', () => {
     let basePage: BasePage;
     let productPage: ProductPage;
     let cartPage: CartPage;
+
     let contactUsPage: ContactUsPage;
     test.beforeEach(async ({ page }) => {
         homePage = new HomePage(page);
@@ -31,5 +32,11 @@ test.describe('Test Case 22:Verified Product in cart page ', () => {
         await homePage.clickOnViewCartButton();
         await cartPage.areAllProductsInCartVisible();
 
+    })
+    test('test-case25-tests', async ({ page }) => {
+        await homePage.isLogoVisible();
+        await homePage.isSubscriptionVisible();
+        await homePage.clickToTheTopButton();
+        await homePage.isFullFledgedMessageVisible();
     })
 })
