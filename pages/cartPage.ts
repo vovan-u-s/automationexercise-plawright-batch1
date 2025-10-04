@@ -1,10 +1,12 @@
 import { Locator, Page, expect } from '@playwright/test';
 export class CartPage {
+    private page: Page;
     private productsInCart: Locator;
     private quantityInputChecking: Locator;
     private removeButton: Locator;
     private emptyCartMessage: Locator;
     constructor(page: Page) {
+        this.page = page;
         this.productsInCart = page.locator('table tbody tr');
         this.quantityInputChecking = page.locator('button[class="disabled"]');
         this.removeButton = page.getByRole('cell', { name: '' }).locator('a')
@@ -21,8 +23,9 @@ export class CartPage {
         await expect(this.quantityInputChecking).toHaveText(expectedQuantity);
     }
     async removeProductFromCart(): Promise<void> {
-        for (let i = 0; i < await this.removeButton.count(); i++) {
-            await this.removeButton.nth(i).click(); 
+        while (await this.productsInCart.count() > 0) {
+            await this.removeButton.first().click();
+            await this.page.waitForTimeout(1000); // Wait for 1 second to allow the cart to update
         }   
     }
     async isCartEmptyMessageVisible(): Promise<void> {

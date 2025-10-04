@@ -40,7 +40,7 @@ export class ProductPage {
         }
     }
     async addAllProductsToCart(): Promise<void> {
-        for (let i = 0; i < await this.addingAllProductsToCartButton.count(); i++) {
+        for (let i = 0; i < 10; i++) {
             await this.addingAllProductsToCartButton.nth(i).click();
             await this.continueButton.click();
         }
