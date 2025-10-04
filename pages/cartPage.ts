@@ -25,7 +25,7 @@ export class CartPage {
     async removeProductFromCart(): Promise<void> {
         while (await this.productsInCart.count() > 0) {
             await this.removeButton.first().click();
-            await this.page.waitForTimeout(1000); // Wait for 1 second to allow the cart to update
+            await this.page.waitForTimeout(1000)
         }   
     }
     async isCartEmptyMessageVisible(): Promise<void> {
