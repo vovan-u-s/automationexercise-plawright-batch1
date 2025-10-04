@@ -45,7 +45,6 @@ export class ContactUsPage {
     async submitFormAndHandleAlert(page: Page): Promise<void> {
         // Listen for dialog (alert) and accept it
         page.once('dialog', async dialog => {
-            console.log(`Alert message: ${dialog.message()}`);
             await dialog.accept();
         });
         
