@@ -24,9 +24,9 @@ export class CartPage {
     }
     async removeProductFromCart(): Promise<void> {
         while (await this.productsInCart.count() > 0) {
-            await this.removeButton.first().click();
-            await this.page.waitForTimeout(1000)
-        }   
+            await this.removeButton.first().click({delay:500});
+          
+        }
     }
     async isCartEmptyMessageVisible(): Promise<void> {
         await expect(this.emptyCartMessage).toBeVisible();
