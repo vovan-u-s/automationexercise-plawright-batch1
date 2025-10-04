@@ -6,6 +6,7 @@ import { BasePage } from '../pages/BasePage';
 import { ProductPage } from '../pages/productPage.ts';
 import { CartPage } from '../pages/cartPage.ts';
 import { ContactUsPage } from '../pages/contactUsPage.ts';
+import { sourceMapsEnabled } from 'process';
 
 test.describe('Test Case 22:Verified Product in cart page ', () => {
     let homePage: HomePage;
@@ -33,10 +34,16 @@ test.describe('Test Case 22:Verified Product in cart page ', () => {
         await cartPage.areAllProductsInCartVisible();
 
     })
-    test('test-case25-tests', async ({ page }) => {
+    test('test-case25-tests-alt', async ({ page }) => {
         await homePage.isLogoVisible();
         await homePage.isSubscriptionVisible();
         await homePage.clickToTheTopButton();
         await homePage.isFullFledgedMessageVisible();
     })
-})
+
+    test('test-case26-tests', async ({ page }) => {
+        await homePage.isLogoVisible();
+        await homePage.isSubscriptionVisible();
+        await homePage.isFullFledgedMessageVisible();
+    })
+}) 

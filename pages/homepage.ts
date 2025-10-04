@@ -40,6 +40,7 @@ export class HomePage extends BasePage {
     async isSubscriptionVisible(): Promise<void> {
         await this.subscription.scrollIntoViewIfNeeded();
         await this.subscription.isVisible();
+        await this.subscription.scrollIntoViewIfNeeded();
     }
     async clickToTheTopButton(): Promise<void> {
         await this.toTheTopButton.click();
@@ -47,4 +48,5 @@ export class HomePage extends BasePage {
     async isFullFledgedMessageVisible(): Promise<void> {    
         await this.fullFledgedMessage.isVisible();
     }
-}
+   
+    }
