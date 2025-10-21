@@ -2,15 +2,13 @@ name:  Development Playwright Tests - Automation Exercise
 
 on:
   schedule:
-    # Runs at 9:00 AM UTC every day (Monday to Friday)
-    - cron: '0 9 * * 1-5'
-    # Runs at 6:00 PM UTC every day
-    - cron: '0 18 * * *'
+      # Runs once at night at 2:00 AM UTC
+    - cron: '0 2 * * *'
   workflow_dispatch:
 
 jobs:
   test:
-    timeout-minutes: 60
+   
     runs-on: ubuntu-latest
     env:
       BASE_URL: http://automationexercise.com
