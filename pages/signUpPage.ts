@@ -6,6 +6,8 @@ export class SignUpPage extends BasePage{
     private loginButton: Locator;
     private incorrectLoginDataMessage: Locator;
     private sigUpPageTitle:Locator;
+    private deletedAccountMessage:Locator;
+    
 
     constructor(page: Page) {
         super(page);
@@ -14,6 +16,7 @@ export class SignUpPage extends BasePage{
         this.loginButton = page.getByRole('button', { name: 'Login' })
         this.incorrectLoginDataMessage = page.getByText('Your email or password is')
         this.sigUpPageTitle=page.getByRole('heading', { name: 'Login to your account' })
+        this.deletedAccountMessage=page.locator('h2[data-qa="account-deleted"]');
     }
 
     async signUp(email: string, password: string): Promise<void> {
@@ -26,6 +29,10 @@ export class SignUpPage extends BasePage{
     }
     async isIncorrectLoginDataMessageVisible(): Promise<void> {
         await this.incorrectLoginDataMessage.isVisible();
+    }
+
+    async isDeletedAccountMessageVisible(): Promise<void> {
+        await this.deletedAccountMessage.isVisible();
     }
 
 }
