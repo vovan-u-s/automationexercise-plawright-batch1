@@ -1,4 +1,4 @@
-name: Production Playwright Tests - Automation Exercise
+name:  Development Playwright Tests - Automation Exercise
 
 on:
   schedule:

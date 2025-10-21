@@ -1,0 +1,204 @@
+# Base Configuration
+baseUrl: 'http://automationexercise.com'
+
+# Test User Credentials
+credentials:
+  username: 'testuser@example.com'
+  password: 'Test@1234'
+  name: 'Test User'
+
+# Test Data
+testData:
+  signUp:
+    name: 'John Doe'
+    email: 'john.doe.test@example.com'
+    password: 'SecurePass123!'
+    title: 'Mr'
+    firstName: 'John'
+    lastName: 'Doe'
+    company: 'Test Company'
+    address1: '123 Test Street'
+    address2: 'Apt 4B'
+    country: 'United States'
+    state: 'California'
+    city: 'Los Angeles'
+    zipcode: '90001'
+    mobileNumber: '+1234567890'
+    
+  contactUs:
+    name: 'Contact Test User'
+    email: 'contact@test.com'
+    subject: 'Test Subject'
+    message: 'This is a test message'
+    filePath: 'test-data/sample-file.txt'
+    
+  product:
+    searchTerm: 'dress'
+    category: 'Women'
+    subCategory: 'Dress'
+    
+  payment:
+    nameOnCard: 'John Doe'
+    cardNumber: '4111111111111111'
+    cvc: '123'
+    expiryMonth: '12'
+    expiryYear: '2025'
+
+# Browser Configuration
+browser:
+  headless: false
+  viewport:
+    width: 1920
+    height: 1080
+  slowMo: 100
+
+# Test Configuration
+test:
+  timeout: 30000
+  retries: 2
+  screenshots:
+    onFailure: true
+    path: 'test-results/screenshots'
+  videos:
+    enabled: true
+    path: 'test-results/videos'
+  traces:
+    enabled: true
+    path: 'test-results/traces'
+
+# Environment Settings
+environment:
+  dev:
+    baseUrl: 'http://automationexercise.com'
+    apiUrl: 'http://automationexercise.com/api'
+  staging:
+    baseUrl: 'https://staging.automationexercise.com'
+    apiUrl: 'https://staging.automationexercise.com/api'
+  production:
+    baseUrl: 'https://automationexercise.com'
+    apiUrl: 'https://automationexercise.com/api'
+
+# Timeouts
+timeouts:
+  default: 30000
+  navigation: 60000
+  api: 15000
+  fileUpload: 45000
+
+# Test Suites
+testSuites:
+  smoke:
+    - 'test-case1'
+    - 'test-case2'
+    - 'test-case3'
+  regression:
+    - 'test-case1'
+    - 'test-case2'
+    - 'test-case3'
+    - 'test-case4'
+    - 'test-case5'
+  critical:
+    - 'test-case1'
+    - 'test-case5'
+    - 'test-case20'
+
+# Reports
+reports:
+  html:
+    enabled: true
+    path: 'playwright-report'
+  json:
+    enabled: true
+    path: 'test-results/results.json'
+  junit:
+    enabled: true
+    path: 'test-results/junit.xml'
+
+# Test Execution Schedule
+schedule:
+  # Smoke Tests - Run frequently
+  smoke:
+    enabled: true
+    cron: '0 */4 * * *'  # Every 4 hours
+    timezone: 'America/New_York'
+    suite: 'smoke'
+    browsers: ['chromium']
+    workers: 2
+    retries: 1
+    notifications:
+      email: ['team@example.com']
+      slack: true
+      onFailureOnly: false
+    
+  # Regression Tests - Run daily
+  regression:
+    enabled: true
+    cron: '0 2 * * *'  # Daily at 2 AM
+    timezone: 'America/New_York'
+    suite: 'regression'
+    browsers: ['chromium', 'firefox', 'webkit']
+    workers: 4
+    retries: 2
+    notifications:
+      email: ['qa-team@example.com', 'dev-team@example.com']
+      slack: true
+      onFailureOnly: true
+    
+  # Critical Tests - Run after each deployment
+  critical:
+    enabled: true
+    cron: '0 0 * * 1-5'  # Monday to Friday at midnight
+    timezone: 'America/New_York'
+    suite: 'critical'
+    browsers: ['chromium']
+    workers: 3
+    retries: 2
+    notifications:
+      email: ['qa-lead@example.com']
+      slack: true
+      teams: true
+      onFailureOnly: false
+    
+  # Full Suite - Run weekly
+  fullSuite:
+    enabled: true
+    cron: '0 3 * * 0'  # Every Sunday at 3 AM
+    timezone: 'America/New_York'
+    suite: 'regression'
+    browsers: ['chromium', 'firefox', 'webkit']
+    workers: 6
+    retries: 2
+    notifications:
+      email: ['qa-team@example.com', 'management@example.com']
+      slack: true
+      teams: true
+      onFailureOnly: false
+
+# Cron Expression Reference
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of the month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday)
+# │ │ │ │ │
+# * * * * *
+
+# Notification Configuration
+notifications:
+  email:
+    enabled: true
+    smtp:
+      host: 'smtp.gmail.com'
+      port: 587
+      secure: false
+    from: 'automation@example.com'
+  
+  slack:
+    enabled: true
+    webhookUrl: 'https://hooks.slack.com/services/YOUR/WEBHOOK/URL'
+    channel: '#test-automation'
+    mentionOnFailure: ['@qa-team', '@dev-team']
+  
+  teams:
+    enabled: false
+    webhookUrl: 'https://outlook.office.com/webhook/YOUR/WEBHOOK/URL'
