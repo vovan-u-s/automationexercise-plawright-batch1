@@ -31,7 +31,12 @@ jobs:
       
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-     
+    
+    - name: Create .env file
+      run: |
+        echo "BASE_URL=${{ env.BASE_URL }}" > .env
+        echo "testEmail=${{ secrets.TEST_EMAIL }}" >> .env
+        echo "password=${{ secrets.TEST_PASSWORD }}" >> .env
       
     - name: Run Playwright tests
       continue-on-error: true
