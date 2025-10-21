@@ -1,4 +1,4 @@
-name: qa Production Playwright Tests - Automation Exercise
+name: qa Playwright Tests - Automation Exercise
 
 on:
   schedule:
