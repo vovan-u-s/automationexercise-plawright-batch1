@@ -1,7 +1,7 @@
 import { test, Page } from '@playwright/test'
-import { BasePage } from '../../pages/BasePage'
+import { BasePage } from '../../pages/basePage'
 import { CartPage } from '../../pages/cartPage';
-import { HomePage } from '../../pages/HomePage'
+import { HomePage } from '../../pages/homepage'
 
 
 test.describe('Test Case 8: Verifying first product in the list', () => {

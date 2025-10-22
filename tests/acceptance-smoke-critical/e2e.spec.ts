@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
-import { HomePage } from '../../pages/HomePage';
+import { HomePage } from '../../pages/homepage';
 import { LoginSignUpPage } from '../../pages/loginSignUpPage';
-import { BasePage } from '../../pages/BasePage';
+import { BasePage } from '../../pages/basePage';
 import {faker} from '@faker-js/faker'
 test.describe('End to End test cases', () => {
     let homePage: HomePage;

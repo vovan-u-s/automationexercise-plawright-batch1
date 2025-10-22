@@ -1,6 +1,6 @@
 import { test, Page } from '@playwright/test'
-import { BasePage } from '../../pages/BasePage'
-import { HomePage } from '../../pages/HomePage'
+import { BasePage } from '../../pages/basePage'
+import { HomePage } from '../../pages/homepage'
 import { ProductPage } from '../../pages/productPage'
 import { CheckinDress } from '../../pages/checkinDress'
 

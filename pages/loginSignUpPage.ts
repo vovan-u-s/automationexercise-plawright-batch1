@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test'
-import { BasePage } from './BasePage';
+import { BasePage } from './basePage';
 export class LoginSignUpPage extends BasePage {
     private signUpTitle: Locator;
     private readonly expectedSignUpTitleText = "New User Signup!";

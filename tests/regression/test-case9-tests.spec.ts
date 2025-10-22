@@ -1,7 +1,7 @@
 import{test} from '@playwright/test'
-import { HomePage } from '../../pages/HomePage';
+import { HomePage } from '../../pages/homepage';
 import { ProductPage } from '../../pages/productPage';
-import { BasePage } from '../../pages/BasePage';
+import { BasePage } from '../../pages/basePage';
 import { beforeEach } from 'node:test';
 
 test.describe('Test Case 9: Search Product',()=>{
