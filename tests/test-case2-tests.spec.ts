@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { HomePage } from '../pages/HomePage';
+import { HomePage } from '../pages/homepage';
 import { SignUpPage } from '../pages/signUpPage';
 import { base, faker } from '@faker-js/faker';
-import { BasePage } from '../pages/BasePage';
+import { BasePage } from '../pages/basePage';
 
 test.describe('Test Case 3: Login User with correct email and password', () => {
     let homePage: HomePage;

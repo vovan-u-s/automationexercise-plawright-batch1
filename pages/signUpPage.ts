@@ -1,5 +1,5 @@
 import { Locator, Page } from "@playwright/test";
-import { BasePage } from "./BasePage";
+import { BasePage } from "./basePage";
 export class SignUpPage extends BasePage{
     private emailInput: Locator;
     private passwordInput: Locator;

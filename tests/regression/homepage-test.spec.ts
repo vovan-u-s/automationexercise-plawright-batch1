@@ -1,7 +1,7 @@
 import { test } from '@playwright/test'
-import { HomePage } from '../../pages/HomePage';
+import { HomePage } from '../../pages/homepage';
 import { TestCasePage } from '../../pages/testCasePage';
-import { BasePage } from '../../pages/BasePage';
+import { BasePage } from '../../pages/basePage';
 test.describe('Homepage Test', () => {
     test('Verify that home page is visible successfully', async ({ page }) => {
         await page.goto('https://automationexercise.com/');
